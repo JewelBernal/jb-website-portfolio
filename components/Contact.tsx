@@ -1,5 +1,5 @@
 const links = [
-  { label: "Email", value: "jewelbernal@proton.me // jwlbernal@gmail.com"},
+  { label: "Email", value: "jewelbernal@proton.me & jwlbernal@gmail.com"},
   {
     label: "GitHub",
     value: "github.com/JewelBernal",
@@ -31,7 +31,7 @@ export default function Contact() {
             href={link.href}
             className="group flex w-fit items-baseline gap-4 font-mono text-sm"
           >
-            <span className="text-ink-muted">{link.label}</span>
+            <span className="text-ink-muted font-medium">{link.label}</span>
             <span className="border-b border-transparent text-ink transition-colors group-hover:border-accent group-hover:text-accent">
               {link.value}
             </span>

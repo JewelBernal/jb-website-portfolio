@@ -62,7 +62,7 @@ export default function Projects() {
       <p className="mb-10 font-mono text-xs tracking-[0.2em] text-muted-foreground">
         SELECTED WORK
       </p>
-      <div className="border-t border-border">
+      <div className=" border-t border-border">
         {projects.map((project) => (
           <a
             key={project.name}
@@ -70,7 +70,7 @@ export default function Projects() {
             className="group flex flex-col justify-between gap-3 border-b border-border py-8 transition-colors hover:bg-foreground/[0.02] sm:flex-row sm:items-baseline sm:gap-8"
           >
             <div className="flex items-baseline gap-4 sm:w-1/3">
-              <span className="font-mono text-xs text-muted-foreground">
+              <span className="pl-5 font-mono text-xs text-muted-foreground">
                 {project.year}
               </span>
               <h3 className="font-heading text-2xl font-medium tracking-tight text-foreground transition-colors group-hover:text-primary">
@@ -80,7 +80,7 @@ export default function Projects() {
             <p className="text-muted-foreground sm:w-1/2">
               {project.description}
             </p>
-            <div className="flex flex-wrap gap-1.5 sm:w-1/6 sm:justify-end">
+            <div className="pr-5 flex gap-1.5 sm:w-1/6 sm:justify-end">
               {project.tags.map((tag) => (
                 <Tag key={tag} label={tag} />
               ))}
