@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "deploy": "pnpm build && pnpm dlx wrangler deploy",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -30,8 +31,10 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.3.0",
+    "serve": "^14.2.6",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wrangler": "^4.119.0"
   },
   "packageManager": "pnpm@10.12.4"
 }
