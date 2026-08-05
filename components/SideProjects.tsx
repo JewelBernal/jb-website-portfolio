@@ -12,7 +12,7 @@ const sideProjects: SideProject[] = [
     year: "2023",
     description: "A short-story horror game (demo only)",
     tags: ["Unity 5", "Blender 3D", "C#"],
-    href:"#"
+    href:"https://www.youtube.com/watch?v=pqfhLxTRfcE"
   },
 ];
 

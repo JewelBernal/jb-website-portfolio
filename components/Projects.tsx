@@ -13,7 +13,7 @@ const projects: Project[] = [
     description:
       "Full-measure design system for QontaHub App, giving the business/accounting application a soul.",
     tags: ["Figma"],
-    href: "#",
+    href: "https://www.qontahub.com",
   },
   {
     name: "Simmer Studios",
@@ -28,7 +28,7 @@ const projects: Project[] = [
     year: "2025",
     description: "A mobile app to hire cleaners to clean your space.",
     tags: ["Next.js", "shadCN/ui", "Supabase", "React", "Figma"],
-    href: "#",
+    href: "",
   },
   {
     name: "1Portal",
@@ -36,7 +36,7 @@ const projects: Project[] = [
     description:
       "A student portal hub to connect students enrolled in iACADEMY.",
     tags: ["TailwindCSS", "PHP", "Figma"],
-    href: "#",
+    href: "https://youtu.be/3qrGMmcMlQk",
   },
   {
     name: "OneStore",
