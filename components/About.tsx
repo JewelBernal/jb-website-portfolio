@@ -1,6 +1,7 @@
 const skills = {
-  Languages: ["TypeScript", "JavaScript", "Python", "mySQL", "HTML/CSS", "Java", "C++/C#", "PHP"],
-  "Frameworks & Tools": ["React", "Next.js", "Node.js", "Tailwind CSS"],
+  Education: ["B.S. Information Technology - National University Manila (2020-2021)", "B.S. Computer Science / Software Engineering - iACADEMY Nexus (2021-2026)"],
+  Languages: ["TypeScript", "JavaScript", "HTML/CSS", "Java", "C++", "C#", "Python", "SQL", "PHP"],
+  "Frameworks & Tools": ["React", "Next.js", "Node.js", "Tailwind CSS", "shadcn-ui", "Cloudflare", "Vercel", "Bootstrap", "SpringBoot", "Supabase", "Firebase", "MongoDB", "Git", "Github", "Jira" ],
   Design: ["Figma", "Design Systems", "Prototyping"],
   Exploration: ["Unity 3D - Game Development", "Blender", "Game Design"],
 };
@@ -17,7 +18,7 @@ export default function About() {
             I'm a software engineer who cares as much about how something looks as whether it works. I design and build interfaces end to end — from the Figma file to the deployed site — because I like seeing an idea stay intact the whole way through. Outside of that, I'm a game dev at heart, chasing the same mix of craft and play in projects nobody's paying me to finish.
           </p>
         </div>
-        <div className="space-y-8">
+        <div className="space-y-8 lg:mr-64 sm: mr-1">
           {Object.entries(skills).map(([category, items]) => (
             <div key={category}>
               <p className="mb-3 font-mono text-xs text-ink-muted">

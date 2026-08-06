@@ -23,7 +23,7 @@ export default function Header() {
           href="/resume.pdf"
           className="font-mono text-sm text-ink-muted transition-colors hover:text-ink"
         >
-          Curiculum Vitae
+          Curriculum Vitae
         </a>
         <ThemeToggle />
       </div>
