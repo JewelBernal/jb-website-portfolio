@@ -1,7 +1,7 @@
 export default function GridBackground() {
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden">
-      {/* Grid lines, faded toward the edges */}
+
       <div
         className="absolute inset-0 opacity-40 dark:opacity-20"
         style={{
@@ -14,7 +14,6 @@ export default function GridBackground() {
             "radial-gradient(ellipse 65% 55% at 50% 0%, black 40%, transparent 100%)",
         }}
       />
-      {/* Soft glow behind the headline */}
       <div
         className="absolute left-1/2 top-0 h-[420px] w-[720px] -translate-x-1/2 -translate-y-1/3 rounded-full opacity-[0.12] blur-[150px]"
         style={{ background: "var(--primary)" }}
