@@ -8,7 +8,6 @@ export default function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
 
-  // Avoid rendering theme-dependent UI until mounted (prevents hydration mismatch)
   React.useEffect(() => setMounted(true), []);
 
   if (!mounted) {
