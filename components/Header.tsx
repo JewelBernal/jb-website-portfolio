@@ -20,7 +20,7 @@ export default function Header() {
       </nav>
       <div className="flex items-center gap-4">
         <a
-          href="/resume.pdf"
+          href="/Resume.pdf"
           className="font-mono text-sm text-ink-muted transition-colors hover:text-ink"
         >
           Curriculum Vitae
