@@ -34,8 +34,8 @@ const projects: Project[] = [
   {
     name: "UpKeep",
     year: "2025",
-    description: "A mobile app to hire cleaners to clean your space.",
-    tags: ["Next.js", "TypeScript", "shadcn", "Supabase", "React", "Figma"],
+    description: "A mobile/web app to hire cleaners to clean your space or offer your service.",
+    tags: ["Expo.dev", "Next.js", "TypeScript", "TailwindCSS", "shadcn", "Supabase"],
     href: "#",
   },
   {
@@ -43,7 +43,7 @@ const projects: Project[] = [
     year: "2025",
     description:
       "A student portal hub for students enrolled in iACADEMY.",
-    tags: ["TailwindCSS", "PHP", "Figma"],
+    tags: ["TailwindCSS", "PHP", "mySQL", "Figma"],
     href: "https://www.youtube.com/watch?v=3qrGMmcMlQk&feature=youtu.be",
   },
   {
