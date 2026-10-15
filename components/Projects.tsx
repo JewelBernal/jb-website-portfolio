@@ -1,9 +1,11 @@
+import { ArrowUpRight } from "lucide-react";
+
 type Project = {
   name: string;
   year: string;
   description: string;
   tags: string[];
-  href: string;
+  href?: string;
 };
 
 const projects: Project[] = [
@@ -11,8 +13,8 @@ const projects: Project[] = [
     name: "QontaHub Design",
     year: "2026",
     description:
-      "Full-measure design system for QontaHub App, an accounting practice-management platform.",
-    tags: ["Figma"],
+      "Design system and frontend for QontaHub App, an accounting practice-management platform — from Figma to the shared React component library.",
+    tags: ["Figma", "React", "TypeScript", "TanStack", "Radix UI", "TailwindCSS", "Vite"],
     href: "https://www.qontahub.com",
   },
   {
@@ -21,7 +23,6 @@ const projects: Project[] = [
     description:
       "This portfolio website ;)",
     tags: ["Next.js", "TypeScript", "TailwindCSS", "shadcn", "Cloudflare"],
-    href: "#",
   },
   {
     name: "Simmer Studios",
@@ -36,7 +37,6 @@ const projects: Project[] = [
     year: "2025",
     description: "A mobile/web app to hire cleaners to clean your space or offer your service.",
     tags: ["Expo.dev", "Next.js", "TypeScript", "TailwindCSS", "shadcn", "Supabase"],
-    href: "#",
   },
   {
     name: "1Portal",
@@ -56,6 +56,16 @@ const projects: Project[] = [
   },
 ];
 
+const sideProjects: Project[] = [
+  {
+    name: "Alone",
+    year: "2023",
+    description: "A short-story horror game (demo only)",
+    tags: ["Unity 5", "Blender 3D", "C#"],
+    href: "https://www.youtube.com/watch?v=pqfhLxTRfcE",
+  },
+];
+
 function Tag({ label }: { label: string }) {
   return (
     <span className="rounded-full border border-border bg-secondary px-2.5 py-0.5 font-mono text-[11px] text-secondary-foreground">
@@ -64,38 +74,69 @@ function Tag({ label }: { label: string }) {
   );
 }
 
-export default function Projects() {
-  return (
-    <section id="work" className="px-6 py-24 sm:px-10">
-      <p className="mb-10 font-mono text-xs tracking-[0.2em] text-muted-foreground">
-        PROJECTS
-      </p>
-      <div className=" border-t border-border">
-        {projects.map((project) => (
-          <a
-            key={project.name}
-            href={project.href}
-            className="group flex flex-col justify-between gap-3 border-b border-border py-8 transition-colors hover:bg-foreground/[0.02] sm:flex-row sm:items-baseline sm:gap-8"
-          >
-            <div className="flex items-baseline gap-4 sm:w-1/3">
-              <span className="pl-5 font-mono text-xs text-muted-foreground">
-                {project.year}
-              </span>
-              <h3 className="font-heading text-2xl font-medium tracking-tight text-foreground transition-colors group-hover:text-primary">
-                {project.name}
-              </h3>
-            </div>
-            <p className="text-muted-foreground sm:w-1/2">
-              {project.description}
-            </p>
-            <div className="pr-5 flex flex-wrap gap-1.5 sm:w-1/6 sm:justify-end">
-              {project.tags.map((tag) => (
-                <Tag key={tag} label={tag} />
-              ))}
-            </div>
-          </a>
+const rowClass =
+  "grid gap-3 border-b border-border px-5 py-7 md:grid-cols-[3.5rem_minmax(0,1fr)_minmax(0,1.4fr)_minmax(0,1fr)] md:items-baseline md:gap-8";
+
+function ProjectRow({ project }: { project: Project }) {
+  const content = (
+    <>
+      <span className="font-mono text-xs text-muted-foreground">
+        {project.year}
+      </span>
+      <h3 className="flex items-start gap-1.5 font-heading text-2xl font-medium tracking-tight text-foreground">
+        {project.name}
+        {project.href && (
+          <ArrowUpRight
+            aria-hidden
+            className="mt-1 h-4 w-4 shrink-0 text-muted-foreground transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground"
+          />
+        )}
+      </h3>
+      <p className="text-muted-foreground">{project.description}</p>
+      <div className="flex flex-wrap gap-1.5 md:justify-end">
+        {project.tags.map((tag) => (
+          <Tag key={tag} label={tag} />
         ))}
       </div>
+    </>
+  );
+
+  if (!project.href) {
+    return <div className={rowClass}>{content}</div>;
+  }
+
+  return (
+    <a
+      href={project.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`group transition-colors hover:bg-foreground/[0.03] ${rowClass}`}
+    >
+      {content}
+    </a>
+  );
+}
+
+function ProjectList({ label, items }: { label: string; items: Project[] }) {
+  return (
+    <div>
+      <p className="mb-10 font-mono text-xs tracking-[0.2em] text-muted-foreground">
+        {label}
+      </p>
+      <div className="border-t border-border">
+        {items.map((project) => (
+          <ProjectRow key={project.name} project={project} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default function Projects() {
+  return (
+    <section id="work" className="space-y-24 px-6 py-24 sm:px-10">
+      <ProjectList label="PROJECTS" items={projects} />
+      <ProjectList label="SIDE PROJECTS" items={sideProjects} />
     </section>
   );
 }
