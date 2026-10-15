@@ -26,7 +26,7 @@ export default function Hero() {
           <div className="mt-10 flex gap-6 font-mono text-sm">
             <a
               href="#about"
-              className="border-b border-ink pb-1 text-ink transition-colors hover:border-accent hover:text-accent"
+              className="border-b border-ink pb-1 text-ink transition-colors hover:border-highlight hover:text-highlight"
             >
               More about me →
             </a>

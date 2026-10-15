@@ -18,6 +18,7 @@ const COMMANDS: Record<string, (args: string[]) => string[]> = {
     "  projects   – recent work",
     "  contact    – how to reach me",
     "  whoami     – guess",
+    "  editor     – where the code happens",
     "  ls         – list sections",
     "  sudo       – don't",
     "  clear      – wipe the screen",
@@ -43,15 +44,16 @@ const COMMANDS: Record<string, (args: string[]) => string[]> = {
     "Scroll down to Projects for the actual links.",
   ],
   contact: () => [
-    "Email:    jewelbernal@proton.me / jwlbernal@gmail.com",
+    "Email:    jewelbernal@proton.me",
     "GitHub:   github.com/JewelBernal",
     "LinkedIn: linkedin.com/in/jewel-bernal",
   ],
   whoami: () => ["A visitor with excellent taste in monospace fonts."],
-  ls: () => ["about  skills  projects  contact  whoami  hobbies"],
+  ls: () => ["about  skills  projects  contact  whoami  hobbies  editor"],
   hobbies: () => [
-    "Unity 3D, Blender, chasing pixel-perfect, losing gracefully to my own scope creep... aaand a little bit of piano and guitar",
+    "Unity 3D, Blender, chasing pixel-perfect, losing gracefully to my own scope creep... aaand a little bit of piano, guitar and video games",
   ],
+  editor: () => ["Zed. Fast, quiet, gets out of the way."],
   sudo: () => ["Permission denied: nice try."],
 };
 
@@ -175,7 +177,7 @@ export default function Terminal() {
             spellCheck={false}
             autoComplete="off"
             aria-label="Terminal input"
-            style={{ caretColor: "var(--accent)" }}
+            style={{ caretColor: "var(--highlight)" }}
             className="flex-1 bg-transparent text-ink outline-none"
           />
         </div>
