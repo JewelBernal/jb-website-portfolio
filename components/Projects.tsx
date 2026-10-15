@@ -1,28 +1,34 @@
-import { ArrowUpRight } from "lucide-react";
-
-type Project = {
-  name: string;
-  year: string;
-  description: string;
-  tags: string[];
-  href?: string;
-};
+import ProjectIndex from "@/components/projects/ProjectIndex";
+import type { Project } from "@/components/projects/types";
 
 const projects: Project[] = [
   {
-    name: "QontaHub Design",
+    name: "QontaHub",
     year: "2026",
     description:
       "Design system and frontend for QontaHub App, an accounting practice-management platform — from Figma to the shared React component library.",
     tags: ["Figma", "React", "TypeScript", "TanStack", "Radix UI", "TailwindCSS", "Vite"],
+    categories: ["Web", "Design"],
     href: "https://www.qontahub.com",
+    note: "Private",
+    featured: true,
+  },
+  {
+    name: "Portfolio Website v2",
+    year: "2026",
+    description:
+      "This portfolio website ;) Reworked with proper dark mode, a printable CV page and this project index.",
+    tags: ["Next.js", "TypeScript", "TailwindCSS", "shadcn", "Cloudflare"],
+    categories: ["Web", "Design"],
+    note: "You're here",
   },
   {
     name: "Portfolio Website v1",
     year: "2026",
     description:
-      "This portfolio website ;)",
+      "The first version of this portfolio, with an interactive terminal in the hero.",
     tags: ["Next.js", "TypeScript", "TailwindCSS", "shadcn", "Cloudflare"],
+    categories: ["Web"],
   },
   {
     name: "Simmer Studios",
@@ -30,6 +36,7 @@ const projects: Project[] = [
     description:
       "Redesign of the Simmer Studios website, updating the look yet keeping the playful style.",
     tags: ["Next.js", "TypeScript", "TailwindCSS", "Figma", "React"],
+    categories: ["Web", "Design"],
     href: "https://www.simmer-studios.com",
   },
   {
@@ -37,6 +44,8 @@ const projects: Project[] = [
     year: "2025",
     description: "A mobile/web app to hire cleaners to clean your space or offer your service.",
     tags: ["Expo.dev", "Next.js", "TypeScript", "TailwindCSS", "shadcn", "Supabase"],
+    categories: ["Mobile", "Web"],
+    note: "Private",
   },
   {
     name: "1Portal",
@@ -44,6 +53,7 @@ const projects: Project[] = [
     description:
       "A student portal hub for students enrolled in iACADEMY.",
     tags: ["TailwindCSS", "PHP", "mySQL", "Figma"],
+    categories: ["Web", "Design"],
     href: "https://www.youtube.com/watch?v=3qrGMmcMlQk&feature=youtu.be",
   },
   {
@@ -52,91 +62,37 @@ const projects: Project[] = [
     description:
       "An e-commerce website, music instrument and accessories store.",
     tags: ["JavaScript", "TailwindCSS", "mySQL", "Java", "Figma"],
+    categories: ["Web"],
     href: "https://youtu.be/GA3N75xdRhQ",
   },
-];
-
-const sideProjects: Project[] = [
   {
     name: "Alone",
     year: "2023",
     description: "A short-story horror game (demo only)",
     tags: ["Unity 5", "Blender 3D", "C#"],
+    categories: ["Game"],
     href: "https://www.youtube.com/watch?v=pqfhLxTRfcE",
+    note: "Side project",
   },
 ];
 
-function Tag({ label }: { label: string }) {
-  return (
-    <span className="rounded-full border border-border bg-secondary px-2.5 py-0.5 font-mono text-[11px] text-secondary-foreground">
-      {label}
-    </span>
-  );
-}
-
-const rowClass =
-  "grid gap-3 border-b border-border px-5 py-7 md:grid-cols-[3.5rem_minmax(0,1fr)_minmax(0,1.4fr)_minmax(0,1fr)] md:items-baseline md:gap-8";
-
-function ProjectRow({ project }: { project: Project }) {
-  const content = (
-    <>
-      <span className="font-mono text-xs text-muted-foreground">
-        {project.year}
-      </span>
-      <h3 className="flex items-start gap-1.5 font-heading text-2xl font-medium tracking-tight text-foreground">
-        {project.name}
-        {project.href && (
-          <ArrowUpRight
-            aria-hidden
-            className="mt-1 h-4 w-4 shrink-0 text-muted-foreground transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground"
-          />
-        )}
-      </h3>
-      <p className="text-muted-foreground">{project.description}</p>
-      <div className="flex flex-wrap gap-1.5 md:justify-end">
-        {project.tags.map((tag) => (
-          <Tag key={tag} label={tag} />
-        ))}
-      </div>
-    </>
-  );
-
-  if (!project.href) {
-    return <div className={rowClass}>{content}</div>;
-  }
-
-  return (
-    <a
-      href={project.href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`group transition-colors hover:bg-foreground/[0.03] ${rowClass}`}
-    >
-      {content}
-    </a>
-  );
-}
-
-function ProjectList({ label, items }: { label: string; items: Project[] }) {
-  return (
-    <div>
-      <p className="mb-10 font-mono text-xs tracking-[0.2em] text-muted-foreground">
-        {label}
-      </p>
-      <div className="border-t border-border">
-        {items.map((project) => (
-          <ProjectRow key={project.name} project={project} />
-        ))}
-      </div>
-    </div>
-  );
-}
-
 export default function Projects() {
   return (
-    <section id="work" className="space-y-24 px-6 py-24 sm:px-10">
-      <ProjectList label="PROJECTS" items={projects} />
-      <ProjectList label="SIDE PROJECTS" items={sideProjects} />
+    <section id="work" className="px-6 py-24 sm:px-10">
+      <div className="mb-10 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+        <div>
+          <p className="mb-4 font-mono text-xs tracking-[0.2em] text-muted-foreground">
+            PROJECTS
+          </p>
+          <h2 className="max-w-[20ch] font-display text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
+            Things I&apos;ve designed, built and shipped.
+          </h2>
+        </div>
+        <p className="font-mono text-xs text-muted-foreground">
+          {String(projects.length).padStart(2, "0")} projects · 2023 — now
+        </p>
+      </div>
+      <ProjectIndex projects={projects} />
     </section>
   );
 }
