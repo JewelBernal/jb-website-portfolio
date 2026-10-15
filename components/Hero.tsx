@@ -1,4 +1,5 @@
 import GridBackground from "@/components/GridBackground";
+import ScrollLink from "@/components/ScrollLink";
 import Terminal from "@/components/Terminal";
 
 export default function Hero() {
@@ -24,18 +25,18 @@ export default function Hero() {
             equally at home in a design file and a terminal.
           </p>
           <div className="mt-10 flex gap-6 font-mono text-sm">
-            <a
-              href="#about"
+            <ScrollLink
+              to="about"
               className="border-b border-ink pb-1 text-ink transition-colors hover:border-highlight hover:text-highlight"
             >
               More about me →
-            </a>
-            <a
-              href="#contact"
+            </ScrollLink>
+            <ScrollLink
+              to="contact"
               className="border-b border-transparent pb-1 text-ink-muted transition-colors hover:border-ink hover:text-ink"
             >
               Get in touch
-            </a>
+            </ScrollLink>
           </div>
         </div>
 
