@@ -84,8 +84,7 @@ const sections: { title: string; description: string; fields: FieldConfig[] }[] 
     fields: [
       { key: "clientName", label: "Company", half: true },
       { key: "clientContact", label: "Attention", placeholder: "Contact person", half: true },
-      { key: "clientLegalName", label: "Legal name", half: true },
-      { key: "clientRegistration", label: "Registration no.", half: true },
+      { key: "clientRegistration", label: "Registration no." },
       { key: "clientAddress", label: "Address", multiline: true },
     ],
   },
