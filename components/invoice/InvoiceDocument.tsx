@@ -322,8 +322,7 @@ export function InvoiceDocument({ data, assets }: { data: InvoiceData; assets: I
           <View style={s.party}>
             <Text style={s.label}>BILLED TO</Text>
             <Text style={s.partyName}>{data.clientName}</Text>
-            {data.clientContact ? <Text style={s.partyContact}>Attn. {data.clientContact}</Text> : null}
-            {data.clientLegalName ? <Text style={s.partyLine}>{data.clientLegalName}</Text> : null}
+            {data.clientContact ? <Text style={s.partyContact}>{data.clientContact}</Text> : null}
             {data.clientRegistration ? <Text style={s.partyMono}>REG. NO. {data.clientRegistration}</Text> : null}
             {data.clientAddress ? <Text style={s.partyLine}>{data.clientAddress}</Text> : null}
           </View>

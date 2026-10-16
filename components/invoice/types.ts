@@ -24,7 +24,6 @@ export type InvoiceData = {
   // Client
   clientName: string
   clientContact: string
-  clientLegalName: string
   clientRegistration: string
   clientAddress: string
 
@@ -68,7 +67,6 @@ export const defaultInvoice: InvoiceData = {
 
   clientName: "QONTAHUB",
   clientContact: "",
-  clientLegalName: "CONTEXTUAL TECHNOLOGIES S.R.L.",
   clientRegistration: "46635591",
   clientAddress: "Str. Popa Soare, Nr. 69, Parter, Camera 4, Sector 2,\n023982 București, Romania",
 
@@ -89,7 +87,6 @@ export const requiredFields: Exclude<keyof InvoiceData, "theme">[] = [
   "iban",
   "swift",
   "clientName",
-  "clientLegalName",
   "clientAddress",
   "invoiceNumber",
   "issueDate",
