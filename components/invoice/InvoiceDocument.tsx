@@ -31,7 +31,7 @@ Font.register({
 // Keep IBANs, emails and addresses from being hyphenated mid-word.
 Font.registerHyphenationCallback((word) => [word])
 
-type Palette = {
+export type Palette = {
   page: string
   panel: string
   text: string
@@ -47,7 +47,8 @@ type Palette = {
   bandMuted: string
 }
 
-const palettes: Record<InvoiceTheme, Palette> = {
+// Shared with the timesheet PDF so both documents match
+export const palettes: Record<InvoiceTheme, Palette> = {
   dark: {
     page: "#0d0e10",
     panel: "#15171a",
@@ -231,7 +232,7 @@ function makeStyles(c: Palette) {
 const themes = { dark: makeStyles(palettes.dark), light: makeStyles(palettes.light) }
 type Styles = (typeof themes)[InvoiceTheme]
 
-function initials(name: string) {
+export function initials(name: string) {
   const letters = name
     .split(/\s+/)
     .filter(Boolean)
